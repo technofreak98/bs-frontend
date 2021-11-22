@@ -10,6 +10,6 @@ export class InventoryService {
 
   addInventory(payload: any){
     console.log('payload',payload);
-    return this.http.post(`http://localhost:5000/add`, payload);
+    return this.http.post(`https://stage-bill-gen-api.herokuapp.com/add`, payload);
   }
 }
