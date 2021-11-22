@@ -1,0 +1,18 @@
+{
+  "/media/*": {
+    "target": "http://127.0.0.1:5000/",
+    "secure": false,
+    "changeOrigin": true
+  },
+  "/*": {
+    "host": "web",
+    "target": "http://127.0.0.1:5000/",
+    "secure": false,
+    "changeOrigin": true
+  },
+  "/static/*": {
+    "target": "http://127.0.0.1:5000/",
+    "secure": false,
+    "changeOrigin": true
+  }
+}
