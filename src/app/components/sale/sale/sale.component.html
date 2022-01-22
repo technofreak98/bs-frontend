@@ -54,7 +54,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="staticBackdropLabel">Add New Sale</h5>
@@ -73,21 +73,40 @@
             </div>
           </div>
           <div class="mb-3 row">
-            <label for="exampleInputPassword1" class="form-label">Customer Name</label>
+            <label  class="form-label">Customer Name</label>
             <div class="">
-              <input type="text" class="form-control"
-                     id="exampleInputPassword1" placeholder="Select Customer" autocomplete="off">
+              <ng-select [items]="cars"
+                         bindLabel="name"
+                         bindValue="id"
+                         placeholder="Select Customer"
+                         >
+              </ng-select>
+<!--              <input type="text" class="form-control"-->
+<!--                     id="exampleInputPassword1" placeholder="Select Customer" autocomplete="off">-->
 <!--              <div *ngIf="submitted && this.inventoryFormData.salePrice?.errors?.required" class="invalid-feedback">-->
 <!--                This field is required-->
 <!--              </div>-->
             </div>
           </div>
           <div class="mb-3 row">
-            <label for="exampleInputPassword1" class="form-label">Product</label>
+            <label class="form-label">Product</label>
             <div class="">
-              <input type="text" class="form-control"
-                     id="exampleInputPassword3" placeholder="Select Product" autocomplete="off">
+              <ng-select [items]="cars"
+                         bindLabel="name"
+                         bindValue="id"
+                         placeholder="Select Product">
+              </ng-select>
               <!--              <div *ngIf="submitted && this.inventoryFormData.salePrice?.errors?.required" class="invalid-feedback">-->
+              <!--                This field is required-->
+              <!--              </div>-->
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="form-label">Sale Price</label>
+            <div class="">
+              <input type="text" class="form-control col-sm-6"
+                      placeholder="Sale Price" autocomplete="off">
+              <!--              <div *ngIf="submitted && this.inventoryFormData.productName?.errors?.required" class="invalid-feedback">-->
               <!--                This field is required-->
               <!--              </div>-->
             </div>
