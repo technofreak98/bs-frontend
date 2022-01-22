@@ -6,4 +6,9 @@
 
 .nav-link{
     border-radius: 0.15rem;
-} 
+}
+
+.side-nav{
+  max-width: 250px;
+  position: fixed;
+}

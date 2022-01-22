@@ -1,41 +1,131 @@
+<!--<div class="container mt-5">-->
+<!--  <div class="row">-->
+<!--    <div class="col">-->
+<!--      <div class="card">-->
+<!--        <div class="card-header  bg-secondary text-white">-->
+<!--          <h5>Add Inventory</h5>-->
+<!--        </div>-->
+<!--        <div class="card-body py-3">-->
+<!--            <form [formGroup]="inventoryForm">-->
+<!--                <div class="mb-3 row">-->
+<!--                    <label for="exampleInputEmail1" class="form-label col-sm-2">Product Name</label>-->
+<!--                    <div class="col-sm-6">-->
+<!--                        <input type="text" [ngClass]="{'is-invalid': submitted && this.inventoryFormData.productName?.errors}" class="form-control col-sm-6" formControlName="product_name"-->
+<!--                        id="exampleInputEmail1" placeholder="Enter product name" autocomplete="off">-->
+<!--                        <div *ngIf="submitted && this.inventoryFormData.productName?.errors?.required" class="invalid-feedback">-->
+<!--                            This field is required-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="mb-3 row">-->
+<!--                    <label for="exampleInputPassword1" class="form-label col-sm-2">Sale Price</label>-->
+<!--                    <div class="col-sm-6">-->
+<!--                        <input type="text" [ngClass]="{'is-invalid': submitted && this.inventoryFormData.salePrice?.errors}" class="form-control" (keypress)="onlyNumberKey($event)"-->
+<!--                        formControlName="product_price" id="exampleInputPassword1" placeholder="Enter sale price" autocomplete="off">-->
+<!--                        <div *ngIf="submitted && this.inventoryFormData.salePrice?.errors?.required" class="invalid-feedback">-->
+<!--                            This field is required-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="mb-3 row">-->
+<!--                    <label for="submitBtnInventory" class="form-label col-sm-2"></label>-->
+<!--                    <div class="col-sm-6">-->
+<!--                        <button type="submit" (click)="addInventory()" id="submitBtnInventory" class="btn btn-primary">Submit</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
 <div class="container mt-5">
-    <div class="row">
-        <div class="col">
-            <div class="card">
-                <div class="card-header bg-secondary text-white">
-                    <h5>Add Inventory</h5>
-                </div>
-                <div class="card-body py-3">
-                <form [formGroup]="inventoryForm">
-                    <div class="mb-3 row">
-                        <label for="exampleInputEmail1" class="form-label col-sm-2">Product Name</label>
-                        <div class="col-sm-6">
-                            <input type="text" [ngClass]="{'is-invalid': submitted && this.inventoryFormData.productName?.errors}" class="form-control col-sm-6" formControlName="product_name"
-                            id="exampleInputEmail1" placeholder="Enter product name" autocomplete="off">
-                            <div *ngIf="submitted && this.inventoryFormData.productName?.errors?.required" class="invalid-feedback">
-                                This field is required
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="exampleInputPassword1" class="form-label col-sm-2">Sale Price</label>
-                        <div class="col-sm-6">
-                            <input type="text" [ngClass]="{'is-invalid': submitted && this.inventoryFormData.salePrice?.errors}" class="form-control" (keypress)="onlyNumberKey($event)"
-                            formControlName="product_price" id="exampleInputPassword1" placeholder="Enter sale price" autocomplete="off">
-                            <div *ngIf="submitted && this.inventoryFormData.salePrice?.errors?.required" class="invalid-feedback">
-                                This field is required
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="submitBtnInventory" class="form-label col-sm-2"></label>
-                        <div class="col-sm-6">
-                            <button type="submit" (click)="addInventory()" id="submitBtnInventory" class="btn btn-primary">Submit</button>
-                        </div>
-                    </div>
-                </form>
-                </div>
-            </div>
-        </div>
+  <div class="row bg-dark text-light">
+    <div class="col d-flex justify-content-between align-items-center py-2">
+      <h5 class="ps-2">Product</h5>
+      <button class="btn btn-sm btn-primary me-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add Product</button>
     </div>
+  </div>
+  <table class="table">
+    <thead class="table-light">
+      <tr class="py-5">
+        <th scope="col">ID</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Sale Price</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Hockey Stick</td>
+      <td>1200</td>
+      <td>
+        <button class="btn btn-sm btn-primary me-3">Edit</button>
+        <button class="btn btn-sm btn-danger">Delete</button>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Boost</td>
+      <td>100</td>
+      <td>
+        <button class="btn btn-sm btn-primary me-3">Edit</button>
+        <button class="btn btn-sm btn-danger">Delete</button>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Hippee Noodles</td>
+      <td>50</td>
+      <td>
+        <button class="btn btn-sm btn-primary me-3">Edit</button>
+        <button class="btn btn-sm btn-danger">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Add Product</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <form [formGroup]="inventoryForm">
+              <div class="mb-3 row">
+                  <label for="exampleInputEmail1" class="form-label">Product Name</label>
+                  <div class="">
+                      <input type="text" [ngClass]="{'is-invalid': submitted && this.inventoryFormData.productName?.errors}" class="form-control col-sm-6" formControlName="product_name"
+                      id="exampleInputEmail1" placeholder="Enter product name" autocomplete="off">
+                      <div *ngIf="submitted && this.inventoryFormData.productName?.errors?.required" class="invalid-feedback">
+                          This field is required
+                      </div>
+                  </div>
+              </div>
+              <div class="mb-3 row">
+                  <label for="exampleInputPassword1" class="form-label">Sale Price</label>
+                  <div class="">
+                      <input type="text" [ngClass]="{'is-invalid': submitted && this.inventoryFormData.salePrice?.errors}" class="form-control" (keypress)="onlyNumberKey($event)"
+                      formControlName="product_price" id="exampleInputPassword1" placeholder="Enter sale price" autocomplete="off">
+                      <div *ngIf="submitted && this.inventoryFormData.salePrice?.errors?.required" class="invalid-feedback">
+                          This field is required
+                      </div>
+                  </div>
+              </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
 </div>
